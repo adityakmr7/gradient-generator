@@ -16,7 +16,7 @@ export default function MainAppBar() {
                   textDecoration: "none",
                   display: "block",
                   margin: "1rem 0",
-                  color: isActive ? "blue" : "#ffffff",
+                  color: isActive ? "#ffffff" : "#ffffff",
                 };
               }}
               to="/"
