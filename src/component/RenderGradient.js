@@ -10,6 +10,7 @@ function RenderGradient() {
         type: "@updateCode",
         payload: `backgroundImage: linear-gradient(${state.angle}deg ,${state.initialColor} ${state.left}%  , ${state.finalColor} ${state.right}%)`,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.angle, state.left, state.right, state.finalColor, state.initialColor]
   );
   return (

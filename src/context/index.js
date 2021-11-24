@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { appConstant } from "./constants";
-
+import AppThemeProvider from "./AppThemeProvider";
 export const AppStateContext = React.createContext();
 
 // Linear Gradients (goes down/up/left/right/diagonally)
@@ -52,9 +52,11 @@ function reducer(state = initialState, action) {
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AppStateContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppStateContext.Provider>
+    <AppThemeProvider>
+      <AppStateContext.Provider value={{ state, dispatch }}>
+        {children}
+      </AppStateContext.Provider>
+    </AppThemeProvider>
   );
 };
 
