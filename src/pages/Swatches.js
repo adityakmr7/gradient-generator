@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { swatches } from "../data/gradient";
+import swatches  from "../data/gradient.json";
 
 function Swatches() {
   const [isCopied, setIsCopied] = useState(false);

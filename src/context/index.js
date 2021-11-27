@@ -52,11 +52,11 @@ function reducer(state = initialState, action) {
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AppThemeProvider>
+
       <AppStateContext.Provider value={{ state, dispatch }}>
         {children}
       </AppStateContext.Provider>
-    </AppThemeProvider>
+
   );
 };
 

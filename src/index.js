@@ -5,14 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AppContext from "./context";
 import { BrowserRouter } from "react-router-dom";
+import AppThemeProvider from "./context/AppThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>
+    <AppThemeProvider>
     <AppContext>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </AppContext>
+    </AppThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

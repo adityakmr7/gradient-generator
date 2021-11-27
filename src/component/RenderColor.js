@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, padding } from "@mui/system";
 import React, { useContext, useState } from "react";
 import { CompactPicker } from "react-color";
 import { AppStateContext } from "../context";
@@ -93,7 +93,15 @@ function RenderColor() {
                   />
                 </Box>
               </Box>
-              <Box>{state.code}</Box>
+              <Box sx={{
+                backgroundColor:'#000000',
+                color: '#ffffff',
+                padding:'20px'
+              }} >
+                
+                {state.code}
+                
+              </Box>
             </Grid>
           </Grid>
         </Grid>
