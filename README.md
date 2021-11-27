@@ -50,7 +50,7 @@ yarn start
 
 ## 🍰 Contributing
 
-Head over to [`data/gradient.js`](https://github.com/adityakmr7/gradient-generator/blob/main/src/data/gradient.json) and add your gradient at the bottom of the list. Here is an example contribution 👇
+Head over to [`data/gradient.json`](https://github.com/adityakmr7/gradient-generator/blob/main/src/data/gradient.json) and add your gradient at the bottom of the list. Here is an example contribution 👇
 
 > Make sure that you have all the required items
 
