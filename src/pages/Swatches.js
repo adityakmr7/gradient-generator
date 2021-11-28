@@ -8,12 +8,13 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import swatches  from "../data/gradient.json";
 
 function Swatches() {
   const [isCopied, setIsCopied] = useState(false);
   const [copiedItem, setCopiedItem] = useState("");
+  const [data, setData] = useState([]);
   const handleCopyToClip = async (data) => {
     let value = `backgroundImage: linear-gradient(${data.angle}deg ,${data.intialColor}  ,${data.finalColor})`;
     try {
@@ -22,11 +23,18 @@ function Swatches() {
       setCopiedItem(data.id);
     } catch (err) {}
   };
-
+  useEffect(() => {
+   const d = swatches.map((item,i) => {
+     item.id = i +1;
+     return item;
+   })
+   setData(d);
+   
+  },[])
   return (
     <Container sx={{ marginTop: "60px" }}>
       <Grid container spacing={4}>
-        {swatches.map((item, i) => {
+        {data.map((item, i) => {
           return (
             <Grid item key={item.id}>
               <Tooltip

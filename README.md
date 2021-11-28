@@ -56,7 +56,6 @@ Head over to [`data/gradient.json`](https://github.com/adityakmr7/gradient-gener
 
 ```json
 { 
-  "id": 1, 
   "intialColor": "#1CB5E0 0%", 
   "finalColor": "#000851 100%", 
   "angle": "90" 
