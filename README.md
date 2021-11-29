@@ -1,6 +1,13 @@
 
 <h2 align="center">Gradient Generator</h1>
 
+<p align="center">
+    <a href="https://css-generator-app.herokuapp.com/" target="blank">View Demo</a>
+    ·
+    <a href="https://github.com/adityakmr7/gradient-generator/issues/new/choose">Report Bug</a>
+    ·
+    <a href="https://github.com/adityakmr7/gradient-generator/issues/new/choose">Request Feature</a>
+</p>
 
 <p align="center">
 
@@ -19,6 +26,7 @@
 </a>
 
 </p>
+
 
 ## 🛠️ Installation Steps
 
