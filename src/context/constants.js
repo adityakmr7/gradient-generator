@@ -1,7 +1,7 @@
 export const appConstant = {
-  "@initialColor": "@initialColor",
-  "@finalColor": "@finalColor",
-  "@updateCode": "@updateCode",
-  "@updateAngle": "@updateAngle",
-  "@updateSlider": "@updateSlider",
+  "INITIAL_COLOR": "INITIAL_COLOR",
+  "FINAL_COLOR": "FINAL_COLOR",
+  "UPDATE_CODE": "UPDATE_CODE",
+  "UPDATE_ANGLE": "UPDATE_ANGLE",
+  "UPDATE_SLIDER": "UPDATE_SLIDER",
 };

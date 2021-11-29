@@ -18,24 +18,24 @@ const initialState = {
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case appConstant["@initialColor"]:
+    case appConstant["INITIAL_COLOR"]:
       return {
         ...state,
         initialColor: action.payload,
       };
-    case appConstant["@finalColor"]:
+    case appConstant["FINAL_COLOR"]:
       return { ...state, finalColor: action.payload };
-    case appConstant["@updateCode"]:
+    case appConstant["UPDATE_CODE"]:
       return {
         ...state,
         code: action.payload,
       };
-    case appConstant["@updateAngle"]:
+    case appConstant["UPDATE_ANGLE"]:
       return {
         ...state,
         angle: action.payload,
       };
-    case appConstant["@updateSlider"]:
+    case appConstant["UPDATE_SLIDER"]:
       return {
         ...state,
         left: action.payload.min, //min
