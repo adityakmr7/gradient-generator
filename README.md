@@ -71,8 +71,27 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start): for routing
 
 
-
 # Screenshot
 
 <img src="https://github.com/adityakmr7/gradient-generator/blob/main/src/assets/screenshot/01.png"/>
 <img src="https://github.com/adityakmr7/gradient-generator/blob/main/src/assets/screenshot/02.png"/>
+
+## 👨‍💻 Thanks to the Awesome Contributors
+
+Feel free to contribute in the project 🙌
+
+<a href="https://github.com/adityakmr7/gradient-generator/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adityakmr7/gradient-generator" />
+</a>
+
+
+## 🙏 Support
+
+This project needs a 🌟 from you
+
+<hr>
+<p align="center">
+Developed with ❤️ in India 🇮🇳 
+</p>
+
+
