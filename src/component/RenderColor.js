@@ -13,7 +13,7 @@ function RenderColor() {
   const { state, dispatch } = useContext(AppStateContext);
   const handleCircularChange = (value) => {
     dispatch({
-      type: "@updateAngle",
+      type: "UPDATE_ANGLE",
       payload: value,
     });
   };
@@ -22,7 +22,7 @@ function RenderColor() {
     setValue(newValue);
 
     dispatch({
-      type: "@updateSlider",
+      type: "UPDATE_SLIDER",
       payload: {
         min: newValue[0],
         max: newValue[1],
@@ -32,14 +32,14 @@ function RenderColor() {
   const handleIntialColor = (color) => {
     setInitialColor(color.hex);
     dispatch({
-      type: "@initialColor",
+      type: "INITIAL_COLOR",
       payload: color.hex,
     });
   };
   const handleFinalColor = (color) => {
     setFinalColor(color.hex);
     dispatch({
-      type: "@finalColor",
+      type: "FINAL_COLOR",
       payload: color.hex,
     });
   };
