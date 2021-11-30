@@ -7,9 +7,16 @@ import { Link } from "react-router-dom";
 import { FormControlLabel, FormGroup, useTheme } from "@mui/material";
 import { ColorModeContext } from "../context/AppThemeProvider";
 import { MaterialUISwitch } from "./MaterialUiSwitch";
+import { AppStateContext } from "../context";
 export default function MainAppBar() {
-  const colorMode = React.useContext(ColorModeContext);
+  const { state, dispatch } = React.useContext(AppStateContext);
   const theme = useTheme();
+  const handleThemeToggle = () => {
+    dispatch({
+      type :"THEME"
+    })
+  }
+  console.log('statethhhth', state);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -40,7 +47,6 @@ export default function MainAppBar() {
                 to="/swatches"
               >
                 <Typography color={theme.palette.text.primary}>
-                  {" "}
                   Swatches
                 </Typography>
               </Link>
@@ -48,7 +54,7 @@ export default function MainAppBar() {
             <Box>
               <FormGroup>
                 <FormControlLabel
-                  onChange={colorMode.toggleColorMode}
+                  onChange={handleThemeToggle}
                   control={
                     <MaterialUISwitch
                       sx={{ m: 1 }}
