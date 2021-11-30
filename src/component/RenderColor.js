@@ -1,15 +1,18 @@
 import { Container, Grid, Typography } from "@mui/material";
-import { Box, padding } from "@mui/system";
-import React, { useContext, useState } from "react";
-import { CompactPicker } from "react-color";
+import { Box } from "@mui/system";
+import React, { useContext, } from "react";
+// import { CompactPicker } from "react-color";
 import { AppStateContext } from "../context";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import Slider from "@mui/material/Slider";
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/lib/css/styles.css";
 
 function RenderColor() {
   const [value, setValue] = React.useState([20, 37]);
-  const [initialColor, setInitialColor] = useState("");
-  const [finalColor, setFinalColor] = useState("");
+  const [color, setColor] = useColor("hex", "#121212");
+  const [color2, setColor2] = useColor("hex", "#121212");
+
   const { state, dispatch } = useContext(AppStateContext);
   const handleCircularChange = (value) => {
     dispatch({
@@ -20,7 +23,6 @@ function RenderColor() {
 
   const onMSliderChange = (event, newValue) => {
     setValue(newValue);
-
     dispatch({
       type: "UPDATE_SLIDER",
       payload: {
@@ -29,23 +31,28 @@ function RenderColor() {
       },
     });
   };
+
   const handleIntialColor = (color) => {
-    setInitialColor(color.hex);
+    // setInitialColor(color.hex);
+    setColor(color);
     dispatch({
       type: "INITIAL_COLOR",
-      payload: color.hex,
+      payload: color,
     });
   };
   const handleFinalColor = (color) => {
-    setFinalColor(color.hex);
+    // setFinalColor(color.hex);
+    setColor2(color);
     dispatch({
       type: "FINAL_COLOR",
-      payload: color.hex,
+      payload: color,
     });
   };
   function valuetext(value) {
     return `${value}`;
   }
+
+
 
   return (
     <Container>
@@ -71,8 +78,8 @@ function RenderColor() {
           >
             <Grid item>
               <CircularSlider
-                progressColorFrom={state.initialColor}
-                progressColorTo={state.finalColor}
+                progressColorFrom={state.initialColor.hex}
+                progressColorTo={state.finalColor.hex}
                 onChange={handleCircularChange}
               />
             </Grid>
@@ -80,17 +87,19 @@ function RenderColor() {
               <Box justifyContent="space-around" display="flex" marginY={5}>
                 <Box>
                   <Typography>Initial Color</Typography>
-                  <CompactPicker
+                  <ColorPicker width={456} height={228} color={color} onChange={handleIntialColor} hideHSV dark />
+                  {/* <CompactPicker
                     color={initialColor}
                     onChangeComplete={handleIntialColor}
-                  />
+                  /> */}
                 </Box>
                 <Box>
                   <Typography>FinalColor</Typography>
-                  <CompactPicker
+                  {/* <CompactPicker
                     color={finalColor}
                     onChangeComplete={handleFinalColor}
-                  />
+                  /> */}
+                    <ColorPicker width={456} height={228} color={color2} onChange={handleFinalColor} hideHSV dark />
                 </Box>
               </Box>
               <Box sx={{

@@ -1,62 +1,38 @@
+import { createTheme, ThemeProvider } from "@mui/material";
 import React, { useReducer } from "react";
-import { appConstant } from "./constants";
-import AppThemeProvider from "./AppThemeProvider";
+
+import { reducer, initialState } from "./reducer";
+import {getDesignTokens} from './AppThemeProvider';
 export const AppStateContext = React.createContext();
-
-// Linear Gradients (goes down/up/left/right/diagonally)
-// Radial Gradients (defined by their center)
-// Conic Gradients (rotated around a center point)
-
-const initialState = {
-  initialColor: "#ffffff",
-  finalColor: "#000000",
-  code: "",
-  direction: 50,
-  left: 50,
-  right: 100,
-  angle: 90,
-};
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case appConstant["INITIAL_COLOR"]:
-      return {
-        ...state,
-        initialColor: action.payload,
-      };
-    case appConstant["FINAL_COLOR"]:
-      return { ...state, finalColor: action.payload };
-    case appConstant["UPDATE_CODE"]:
-      return {
-        ...state,
-        code: action.payload,
-      };
-    case appConstant["UPDATE_ANGLE"]:
-      return {
-        ...state,
-        angle: action.payload,
-      };
-    case appConstant["UPDATE_SLIDER"]:
-      return {
-        ...state,
-        left: action.payload.min, //min
-        right: action.payload.max, //max
-      };
-
-    default:
-      return {
-        ...state,
-      };
-  }
-}
 
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        ...getDesignTokens(state.mode),
+        components: {
+          MuiAppBar: {
+            defaultProps: {
+              color: "default",
+            },
+          },
+          MuiContainer: {
+            defaultProps: {
+              color: "default",
+            },
+          },
+        },
+      }),
+    [state.mode]
+  );
   return (
-
       <AppStateContext.Provider value={{ state, dispatch }}>
+      <ThemeProvider theme={theme}>
         {children}
+        </ThemeProvider>
       </AppStateContext.Provider>
-
   );
 };
 

@@ -1,11 +1,7 @@
-import { createTheme, ThemeProvider } from "@mui/material";
 import React from "react";
 import { amber, deepOrange, grey } from "@mui/material/colors";
-export const ColorModeContext = React.createContext({
-  toggleColorMode: () => {},
-});
 
-const getDesignTokens = (mode) => ({
+export const getDesignTokens = (mode) => ({
   palette: {
     mode,
     ...(mode === "light"
@@ -34,44 +30,3 @@ const getDesignTokens = (mode) => ({
   },
 });
 
-function AppThemeProvider({ children }) {
-  const [mode, setMode] = React.useState("light");
-
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-    }),
-    []
-  );
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        ...getDesignTokens(mode),
-        components: {
-          MuiAppBar: {
-            defaultProps: {
-              enableColorOnDark: true,
-              color: "default",
-            },
-          },
-          MuiContainer: {
-            defaultProps: {
-              enableColorOnDark: true,
-              color: "default",
-            },
-          },
-        },
-      }),
-    [mode]
-  );
-  return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </ColorModeContext.Provider>
-  );
-}
-
-export default AppThemeProvider;

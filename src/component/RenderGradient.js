@@ -9,17 +9,18 @@ function RenderGradient() {
     () =>
       dispatch({
         type: "UPDATE_CODE",
-        payload: `backgroundImage: linear-gradient(${state.angle}deg ,${state.initialColor} ${state.left}%  , ${state.finalColor} ${state.right}%)`,
+        payload: `backgroundImage: linear-gradient(${state.angle}deg ,${state.initialColor.hex} ${state.left}%  , ${state.finalColor.hex} ${state.right}%)`,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.angle, state.left, state.right, state.finalColor, state.initialColor]
   );
+
   return (
     <Grid container>
       <Grid item width="100%">
         <Box
           sx={{
-            backgroundImage: `linear-gradient(${state.angle}deg ,${state.initialColor} ${state.left}%  , ${state.finalColor} ${state.right}%)`,
+            backgroundImage: `linear-gradient(${state.angle}deg ,${state.initialColor.hex} ${state.left}%  , ${state.finalColor.hex} ${state.right}%)`,
             height: "400px",
             width: "100%",
           }}
