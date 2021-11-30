@@ -3,8 +3,10 @@ import { Box } from "@mui/system";
 import React, { useContext, useMemo } from "react";
 import { AppStateContext } from "../context";
 import bmc from '../assets/img/bmc-btn.png';
+import Slider from "@mui/material/Slider";
 function RenderGradient() {
   const { state, dispatch } = useContext(AppStateContext);
+  const [value, setValue] = React.useState([20, 37]);
   useMemo(
     () =>
       dispatch({
@@ -14,6 +16,20 @@ function RenderGradient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.angle, state.left, state.right, state.finalColor, state.initialColor]
   );
+  const onMSliderChange = (event, newValue) => {
+    setValue(newValue);
+    dispatch({
+      type: "UPDATE_SLIDER",
+      payload: {
+        min: newValue[0],
+        max: newValue[1],
+      },
+    });
+  };
+  
+  function valuetext(value) {
+    return `${value}`;
+  }
 
   return (
     <Grid container>
@@ -34,6 +50,28 @@ function RenderGradient() {
           </Box>
           </a>
         </Box>
+      </Grid>
+      <Grid item width="100%">
+        <Box mt={4}>
+      <Slider
+              getAriaLabel={() => "Temperature range"}
+              value={value}
+              onChange={onMSliderChange}
+              valueLabelDisplay="auto"
+              getAriaValueText={valuetext}
+            />
+            </Box>
+      </Grid>
+      <Grid item width="100%">
+      <Box mt={5} sx={{
+                backgroundColor:'#000000',
+                color: '#ffffff',
+                padding:'20px'
+              }} >
+                
+                {state.code}
+                
+              </Box>
       </Grid>
     </Grid>
   );

@@ -5,7 +5,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { FormControlLabel, FormGroup, useTheme } from "@mui/material";
-import { ColorModeContext } from "../context/AppThemeProvider";
 import { MaterialUISwitch } from "./MaterialUiSwitch";
 import { AppStateContext } from "../context";
 export default function MainAppBar() {

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { amber, deepOrange, grey } from "@mui/material/colors";
 
 export const getDesignTokens = (mode) => ({

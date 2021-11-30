@@ -4,12 +4,12 @@ import React, { useContext, } from "react";
 // import { CompactPicker } from "react-color";
 import { AppStateContext } from "../context";
 import CircularSlider from "@fseehawer/react-circular-slider";
-import Slider from "@mui/material/Slider";
+// import Slider from "@mui/material/Slider";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 
 function RenderColor() {
-  const [value, setValue] = React.useState([20, 37]);
+  // const [value, setValue] = React.useState([20, 37]);
   const [color, setColor] = useColor("hex", "#121212");
   const [color2, setColor2] = useColor("hex", "#121212");
 
@@ -21,16 +21,16 @@ function RenderColor() {
     });
   };
 
-  const onMSliderChange = (event, newValue) => {
-    setValue(newValue);
-    dispatch({
-      type: "UPDATE_SLIDER",
-      payload: {
-        min: newValue[0],
-        max: newValue[1],
-      },
-    });
-  };
+  // const onMSliderChange = (event, newValue) => {
+  //   setValue(newValue);
+  //   dispatch({
+  //     type: "UPDATE_SLIDER",
+  //     payload: {
+  //       min: newValue[0],
+  //       max: newValue[1],
+  //     },
+  //   });
+  // };
 
   const handleIntialColor = (color) => {
     // setInitialColor(color.hex);
@@ -48,16 +48,16 @@ function RenderColor() {
       payload: color,
     });
   };
-  function valuetext(value) {
-    return `${value}`;
-  }
+  // function valuetext(value) {
+  //   return `${value}`;
+  // }
 
 
 
   return (
     <Container>
       <Grid container direction="row">
-        <Grid item width="100%">
+        {/* <Grid item width="100%">
           <Box marginTop={4} width="100%">
             <Slider
               getAriaLabel={() => "Temperature range"}
@@ -67,7 +67,7 @@ function RenderColor() {
               getAriaValueText={valuetext}
             />
           </Box>
-        </Grid>
+        </Grid> */}
         <Grid style={{ marginTop: "50px" }} item>
           <Grid
             spacing={5}
@@ -76,41 +76,37 @@ function RenderColor() {
             justifyContent="space-between"
             container
           >
-            <Grid item>
+            <Grid xs={3} item>
+             <Box mt={7}>
               <CircularSlider
                 progressColorFrom={state.initialColor.hex}
                 progressColorTo={state.finalColor.hex}
                 onChange={handleCircularChange}
-              />
+                width={150}
+                            />
+                            </Box>
+            
             </Grid>
-            <Grid item>
-              <Box justifyContent="space-around" display="flex" marginY={5}>
+            <Grid xs={9}  item>
+              <Box justifyContent="space-around" display="flex" >
                 <Box>
                   <Typography>Initial Color</Typography>
-                  <ColorPicker width={456} height={228} color={color} onChange={handleIntialColor} hideHSV dark />
+                  <ColorPicker width={250} height={228} color={color} onChange={handleIntialColor} hideHSV dark />
                   {/* <CompactPicker
                     color={initialColor}
                     onChangeComplete={handleIntialColor}
                   /> */}
                 </Box>
-                <Box>
+                <Box marginLeft={4}>
                   <Typography>FinalColor</Typography>
                   {/* <CompactPicker
                     color={finalColor}
                     onChangeComplete={handleFinalColor}
                   /> */}
-                    <ColorPicker width={456} height={228} color={color2} onChange={handleFinalColor} hideHSV dark />
+                    <ColorPicker width={250} height={228} color={color2} onChange={handleFinalColor} hideHSV dark />
                 </Box>
               </Box>
-              <Box sx={{
-                backgroundColor:'#000000',
-                color: '#ffffff',
-                padding:'20px'
-              }} >
-                
-                {state.code}
-                
-              </Box>
+             
             </Grid>
           </Grid>
         </Grid>
