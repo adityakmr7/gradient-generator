@@ -1,8 +1,8 @@
-import { createTheme, ThemeProvider } from "@mui/material";
-import React, { useReducer } from "react";
+import { createTheme, ThemeProvider } from '@mui/material';
+import React, { useReducer } from 'react';
 
-import { reducer, initialState } from "./reducer";
-import {getDesignTokens} from './AppThemeProvider';
+import { reducer, initialState } from './reducer';
+import { getDesignTokens } from './AppThemeProvider';
 export const AppStateContext = React.createContext();
 
 const AppContext = ({ children }) => {
@@ -15,24 +15,22 @@ const AppContext = ({ children }) => {
         components: {
           MuiAppBar: {
             defaultProps: {
-              color: "default",
-            },
+              color: 'default'
+            }
           },
           MuiContainer: {
             defaultProps: {
-              color: "default",
-            },
-          },
-        },
+              color: 'default'
+            }
+          }
+        }
       }),
     [state.mode]
   );
   return (
-      <AppStateContext.Provider value={{ state, dispatch }}>
-      <ThemeProvider theme={theme}>
-        {children}
-        </ThemeProvider>
-      </AppStateContext.Provider>
+    <AppStateContext.Provider value={{ state, dispatch }}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </AppStateContext.Provider>
   );
 };
 
