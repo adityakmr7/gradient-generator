@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { FormControlLabel, FormGroup, useTheme } from '@mui/material';
 import { MaterialUISwitch } from './MaterialUiSwitch';
 import { AppStateContext } from '../context';
+import github from '../assets/img/GitHub_Logo.png';
+
 export default function MainAppBar() {
   const { state, dispatch } = React.useContext(AppStateContext);
   const theme = useTheme();
@@ -36,6 +38,12 @@ export default function MainAppBar() {
           </Typography>
 
           <Box display="flex" flexDirection="row" alignItems="center">
+            <a
+              href="https://github.com/adityakmr7/gradient-generator"
+              target="_blank"
+              rel="noreferrer">
+              <img style={{ width: '150px', height: '50px' }} src={github} />
+            </a>
             <Box marginX={2}>
               <Link
                 style={{
@@ -46,6 +54,7 @@ export default function MainAppBar() {
                 <Typography color={theme.palette.text.primary}>Swatches</Typography>
               </Link>
             </Box>
+
             <Box>
               <FormGroup>
                 <FormControlLabel
