@@ -1,4 +1,3 @@
-
 <h2 align="center">Gradient Generator</h1>
 
 <p align="center">
@@ -26,7 +25,6 @@
 </a>
 
 </p>
-
 
 ## 🛠️ Installation Steps
 
@@ -63,10 +61,10 @@ Head over to [`data/gradient.json`](https://github.com/adityakmr7/gradient-gener
 > Make sure that you have all the required items
 
 ```json
-{ 
-  "intialColor": "#1CB5E0 0%", 
-  "finalColor": "#000851 100%", 
-  "angle": "90" 
+{
+  "intialColor": "#1CB5E0 0%",
+  "finalColor": "#000851 100%",
+  "angle": "90"
 }
 ```
 
@@ -77,7 +75,6 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 - [React](https://reactjs.org/)
 - [Material UI](http://material-ui.com/): for styling and Icons
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start): for routing
-
 
 # Screenshot
 
@@ -92,7 +89,6 @@ Feel free to contribute in the project 🙌
   <img src="https://contrib.rocks/image?repo=adityakmr7/gradient-generator" />
 </a>
 
-
 ## 🙏 Support
 
 This project needs a 🌟 from you
@@ -101,5 +97,3 @@ This project needs a 🌟 from you
 <p align="center">
 Developed with ❤️ in India 🇮🇳 
 </p>
-
-
