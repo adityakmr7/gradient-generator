@@ -78,7 +78,7 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 
 # Screenshot
 
-<img src="https://github.com/adityakmr7/gradient-generator/blob/main/src/assets/screenshot/01.png"/>
+<img src="https://github.com/adityakmr7/gradient-generator/blob/main/src/assets/screenshot/01_v1.png"/>
 <img src="https://github.com/adityakmr7/gradient-generator/blob/main/src/assets/screenshot/02.png"/>
 
 ## 👨‍💻 Thanks to the Awesome Contributors
